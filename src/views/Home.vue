@@ -1,19 +1,6 @@
 <template>
   <div class="deneme">
     <div>
-      <input type="text" value="isim" placeholder="isim" v-model="isim" />
-    </div>
-
-    <div>
-      <input
-        type="text"
-        value="soyisim"
-        placeholder="soyisim"
-        v-model="soyisim"
-      />
-    </div>
-
-    <div>
       <input
         type="checkbox"
         id="mycheck"
@@ -23,10 +10,10 @@
       />
     </div>
 
-    <div class="kimlik">
-      <p class="text">{{ isim }}</p>
-      <p class="text" v-if="!check">{{ soyisim }}</p>
+    <div v-if="check">
+      <p v-for="item in forArray" :key="item" >{{ item.isim }} {{ item.soyisim }}</p>
     </div>
+
   </div>
 </template>
 
@@ -35,9 +22,17 @@ export default {
   name: "Home",
   data() {
     return {
-      check: null,
-      isim: null,
-      soyisim: null,
+      check: false,
+      forArray: [
+          {
+          isim: "haluk",
+          soyisim: "keskin"
+        },
+          {
+          isim: "gökay",
+          soyisim: "kahraman"
+        }
+      ]
     };
   }
 };
