@@ -1,32 +1,56 @@
 <template>
-  <div class="main">
-    <div style="margin-top: 168px;">Hi there! Welcome to</div>
-    <img src="./assets/image.png" style="margin-top: 24px;" />
-    <div style="margin-top: 94px;">
-      Very simple Things To-Do List. Helps you to<br />manage yourdaily life,
-      without any hassle!
+  <div id="app">
+    <div class="main">
+
+      <div class="title">Create New Tasks</div>
+      <div class="label">Name</div>
+
+      <input type="text" value="name" placeholder="Write Name" v-model="name"/>
+
+      <div class="label">Description</div>
+
+      <input type="text" value="surname" placeholder="Write Surname" v-model="surname"/><br>
+      
+      <input class="date" placeholder="16"/>
+      <input class="date" placeholder="Mart"/>
+      <input class="date" placeholder="2000"/>
+      
+      <div class="label">Notification</div>
+      <input placeholder="10 mins before"/><br>
+      <button class="add-btn" @click="additems">ADD</button>
+
     </div>
 
-    <div class="footer">
-      <div class="social-container facebook">
-        <a class="social-link" href="https://www.instagram.com/gokykh_/">
-          <div class="facebook-logo"></div>
-          <div class="social-title">FACEBOOK</div>
-        </a>
-      </div>
+    <p v-for="(item, index) in list" :key="index">
+      {{ item }}
+    </p>
 
-      <div class="social-container twitter" style="margin-top: 15px;">
-        <a class="social-link" href="https://twitter.com/GokayKh">
-          <div class="twitter-logo"></div>
-          <div class="social-title">TWITTER</div>
-        </a>
-      </div>
-    </div>
-  </div>
+  </div> 
 </template>
 
 <script>
-//js
+export default {
+  name: "app",
+  data() {
+    return {
+      name: null,
+      surname: null,
+      list: []
+    }
+  },
+  methods: {
+    additems() {
+      this.list.push(JSON.stringify({name: this.name, surname: this.surname}))
+      this.name = null
+      this.surname = null
+    }
+
+  }
+
+}
+
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -35,7 +59,14 @@
   src: url("./assets/Raleway-Regular.ttf");
 }
 .main {
-  text-align: center;
+  width:336px;
+
+  border: gray;
+  border-style: solid;
+  border-width: 20px;
+  border-radius: 3px;
+
+  padding-left: 27px;
   font-family: Raleway;
   font-style: normal;
 
@@ -44,67 +75,48 @@
 
   color: #050505;
 }
-
-.text {
-  text-align: center;
-}
-
-.footer {
-  margin-top: 145px;
-}
-
-.social-container {
-  width: 280px;
-  height: 50px;
-  border-radius: 3px;
-  color: white;
-  margin: auto;
-}
-
-.facebook-logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 3px;
-
-  background-color: #283b68;
-  background-image: url("./assets/face.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.twitter-logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 3px;
-
-  background-color: #51b2e0;
-  background-image: url("./assets/twit.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.social-title {
-  margin-left: 23px;
-  margin-top: 19px;
-
-  font-family: Raleway;
+.title {
   font-style: normal;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 24px;
+  
+  margin-top: 25px;
+
+  color: #050505;
+}
+
+input {
+  margin-top: 12px;
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+  opacity: 0.55;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.date{
+  margin-top: 45px;
+  width: 60px;
+  margin-right: 5px;
+}
+
+.add-btn{
+  margin-left: -27px;
+  margin-top: 40px;
+  width: 363px;
+  height: 50px;
+
+  background: #5A95FF;
+  border-style: none;
+
   letter-spacing: 1px;
-
-  color: #ffffff;
-}
-
-.facebook {
-  background-color: #3b5798;
-}
-
-.twitter {
-  background-color: #59dcff;
-}
-.social-link {
-  display: flex;
-  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
+  color: #FFFFFF;
 }
 </style>
