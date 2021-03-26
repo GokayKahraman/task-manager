@@ -1,122 +1,132 @@
 <template>
-  <div id="app">
-    <div class="main">
+  <div>
+    <div class="header">
+      <div class="container">
 
-      <div class="title">Create New Tasks</div>
-      <div class="label">Name</div>
+        <a class="header-logo" href="">
+          <img src="./assets/booklogo.png" alt="">
+        </a>
+        <div class="header-menu">
 
-      <input type="text" value="name" placeholder="Write Name" v-model="name"/>
+          <div class="header-menu-user">
+            <a href="">Register</a>
+            <a href="">Sing In</a>
+          </div>
 
-      <div class="label">Description</div>
+          <a class="button" href="">List your property</a>
 
-      <input type="text" value="surname" placeholder="Write Surname" v-model="surname"/><br>
-      
-      <input class="date" placeholder="16"/>
-      <input class="date" placeholder="Mart"/>
-      <input class="date" placeholder="2000"/>
-      
-      <div class="label">Notification</div>
-      <input placeholder="10 mins before"/><br>
-      <button class="add-btn" @click="additems">ADD</button>
-
+          <div class="header-menu-helper">
+            <select>
+              <option value="en">en</option>
+            </select>
+            <select>
+              <option value="en">UAH</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p v-for="(item, index) in list" :key="index">
-      {{ item }}
-    </p>
 
   </div> 
 </template>
 
 <script>
-export default {
-  name: "app",
-  data() {
-    return {
-      name: null,
-      surname: null,
-      list: []
-    }
-  },
-  methods: {
-    additems() {
-      this.list.push(JSON.stringify({name: this.name, surname: this.surname}))
-      this.name = null
-      this.surname = null
-    }
-
-  }
-
-}
-
-
 
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "Raleway";
-  src: url("./assets/Raleway-Regular.ttf");
+$gutter: 20px;
+$max-width: 1500px;
+$color-navy: #083B87;
+$color-blue: #01ACEE;
+$color-softblue: #F1F6FF;
+$finger-size: 36px;
+$border-radius: 2px;
+
+.header {
+  max-width: $max-width;
+  margin: auto;
+
+  .container{
+    display:flex;
+    align-items: center;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-menu{
+    margin-left: auto;
+    display: flex;
+
+    &-user {
+      display: flex;
+      a {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: $finger-size;
+        &:hover {
+          background-color: #eee;
+          }
+        }
+    }
+    &-helper {
+      display: flex;
+      margin-left: 20px;
+
+      select {
+        appearance: none;
+        background-color: transparent;
+        border: 1px solid $color-softblue;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 0;
+        color: $color-navy;
+      }
+
+      &:nth-child(1) {
+        border-bottom-left-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+      }
+      &:nth-child(2) {
+        border-left-width: 0;
+        border-bottom-right-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+      }
+    }
+
+  }
+  &-logo {
+    img {
+      width: 144px;
+    }
+  }
+
 }
-.main {
-  width:336px;
 
-  border: gray;
-  border-style: solid;
-  border-width: 20px;
-  border-radius: 3px;
-
-  padding-left: 27px;
-  font-family: Raleway;
-  font-style: normal;
-
-  font-weight: normal;
-  font-size: 14px;
-
-  color: #050505;
+.container{
+  max-width: $max-width;
+  background-color: white;
 }
-.title {
-  font-style: normal;
+
+.button {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: $finger-size;
+  background-color: $color-blue;
+  color: white;
+  border-radius: $border-radius;
   font-weight: bold;
-  font-size: 24px;
-  
-  margin-top: 25px;
-
-  color: #050505;
 }
 
-input {
-  margin-top: 12px;
-  border-top: hidden;
-  border-left: hidden;
-  border-right: hidden;
-  opacity: 0.55;
-}
 
-.label {
-  font-weight: 600;
-  font-size: 14px;
-  margin-top: 30px;
-}
 
-.date{
-  margin-top: 45px;
-  width: 60px;
-  margin-right: 5px;
-}
 
-.add-btn{
-  margin-left: -27px;
-  margin-top: 40px;
-  width: 363px;
-  height: 50px;
-
-  background: #5A95FF;
-  border-style: none;
-
-  letter-spacing: 1px;
-  font-weight: bold;
-  font-size: 11px;
-  color: #FFFFFF;
-}
 </style>
