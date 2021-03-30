@@ -1,18 +1,16 @@
 <template>
-  <div id="app">
-
+  <div>
     <div class="header">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <div class="container">
 
         <a class="header-logo" href="">
-          <img src="./assets/booklogo.png" alt="">
+          <img src="./assets/img/booklogo.png" alt="">
         </a>
 
         <button class="header-switch" type="button">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-          <title>icon-menu</title>
-          <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
+            <title>icon-menu</title>
+            <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
           </svg>
         </button>
 
@@ -112,9 +110,34 @@
             <a href="">for business</a>
           </ul>
         </div>
+        <div class="showcase-store">
+          <a href="" class="showcase-store-link">
+            <img src="./assets/img/apple.svg">
+          </a>
+          <a href="" class="showcase-store-link">
+            <img src="./assets/img/google.svg">
+          </a>
+        </div>
+      </section>
+      <section class="highlights">
+        <div class="container">
+          <div class="highlights-slider">
+            <div class="highlights-item">
+              <h4>123123</h4>
+              <p>Gökay kahraman</p>
+            </div>
+            <div class="highlights-item">
+              <h4>123123</h4>
+              <p>Gökay kahraman</p>
+            </div>
+            <div class="highlights-item">
+              <h4>123123</h4>
+              <p>Gökay kahraman</p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
-    
   </div> 
 </template>
 
@@ -123,351 +146,5 @@
 </script>
 
 <style lang="scss" scoped>
-$max-width: 1140px;
-$gutter: 20px;
-$border-radius: 3px;
-$finger-size: 44px;
-//
-$color-navy: #083B87;
-$color-blue: #01ACEE;
-$color-softblue: #F1F6FF;
-$color-yellow: #FBBE00;
-//
-$font-family: 'Open Sans', Arial, sans-serif;
-$font-size: 16px;
-$font-size-small: .9em;
-
-@mixin mq($width: "tablet"){
-  @if($width == "tablet") {
-    @media (min-width: 768px) { 
-      @content
-    }
-  }; 
-  @if($width == "desktop") {
-    @media (min-width: 992px) {
-      @content 
-    }
-  };
-  @if($width == "large") {
-    @media (min-width: 1200px) {
-      @content
-    }
-  }  
-}
-
-.header {
-  max-width: $max-width;
-  margin: auto;
-  height: 68px;
-
-  .container{
-    position: relative;
-    display:flex;
-    align-items: center;
-    height: 68px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: $gutter;
-    padding-right: $gutter;
-  }
-  &-switch {
-    margin-left: auto;
-    @include mq {
-      display: none;
-    }
-    
-    background-color: transparent; 
-    border: none;
-  }
-
-  &-menu{
-    display: flex;
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    top: 100%;
-    padding-left: $gutter;
-    padding-right: $gutter;
-    padding-bottom: 20px;
-    flex-direction: column;
-    background-color: white;
-    box-shadow: 0 20px 30px rgba(black, .2);
-
-    @include mq("tablet") {
-      display: flex;
-      margin-left: auto;
-      flex-direction: row;
-      position: static;
-      box-shadow: none;
-      background-color: transparent;
-      padding-left: 0px;
-      padding-right: 0px;
-      padding-bottom: 0px;
-    }
-
-
-    &-user {
-      margin-right: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      @include mq("tablet") {
-        flex-direction: row;
-      }
-
-      a {
-        width: 100%;
-        justify-content: center;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        padding-left: 20px;
-        padding-right: 20px;
-        height: $finger-size;
-        &:hover {
-          background-color: #eee;
-          }
-        }
-    }
-
-    &-property {
-      margin-top: 20px;
-      justify-content: center;
-      @include mq("tablet") {
-        margin-top: 0px;
-      }
-    }
-
-
-    &-helper {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-
-      @include mq("tablet") {
-        margin-left: 20px;
-        margin-top: 0px;
-      }
-
-      select {
-        appearance: none;
-        background-color: transparent;
-        border: 1px solid $color-softblue;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: 0;
-        color: $color-navy;
-      }
-
-      &:nth-child(1) {
-        border-bottom-left-radius: $border-radius;
-        border-top-left-radius: $border-radius;
-      }
-      &:nth-child(2) {
-        border-left-width: 0;
-        border-bottom-right-radius: $border-radius;
-        border-top-right-radius: $border-radius;
-      }
-    }
-
-  }
-  &-logo {
-    img {
-      width: 144px;
-    }
-  }
-
-}
-
-.container{
-  max-width: $max-width;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: $gutter;
-  padding-right: $gutter;
-  text-align: center;
-}
-
-.button {
-  text-decoration: none;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: $finger-size;
-  background-color: $color-blue;
-  color: white;
-  border-radius: $border-radius;
-  font-weight: bold;
-  font-family: inherit;
-  border: 0px;
-  text-align: center;
-
-  &-full {
-    margin-top: 50px;
-    width: 100%;
-  }
-}
-
-.navigation {
-  height: 68px;
-  background-color: $color-softblue;
-
-  .contain {
-    height:100%;
-    display: flex;
-    align-items: center;
-  }
-  &-item {
-    margin-right: 20px;
-    margin-left: 40px;
-    font-size: .90em;
-    color: $color-navy;
-    
-  }
-
-}
-
-.showcase {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: $color-navy;
-  
-  color:white;
-  
-  &-shortlink {
-    margin-top: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    a {
-      margin-left: 10px;
-      margin-right: 10px;
-      color: white;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.search {
-  text-align: left;
-  margin-top: 30px;
-  background-color: orange;
-  padding: $gutter;
-  box-shadow: 0 20px 40px rgba(black, .2);
-
-  @include mq("tablet") {
-    padding: 50px;
-    margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-
-  &-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @include mq("tablet") {
-      flex-direction: row;
-    }
-
-    &-item {
-      width: 100%;
-      @include mq("tablet") {
-
-      }
-      & + & {
-        margin-top: 20px;
-        @include mq("tablet") {
-          flex-grow: 1;
-          margin-top: 0;
-          margin-left: 10px;
-        }
-      }
-    }
-  }
-
-  .for-work {
-    font-size: $font-size-small;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-
-    @include mq("tablet") {
-      position: absolute;
-      top: calc(#{$finger-size} + 20px);
-      right: 0;
-    }
-
-    .checkbox {
-      margin-left: 10px;
-    }
-  }
-
-}
-
-.text {
-  font-family: inherit;
-  border: 0px;
-  min-height: $finger-size;
-  border-radius: $border-radius;
-  color: $color-navy;
-  font-weight: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-}
-
-.select {
-  border: 0px;
-  background-color: white;
-  font-family: inherit;
-  display: inline-block;
-  width: 90%;
-  height: $finger-size;
-  border-radius: $border-radius;
-  font-weight: bold;
-}
-
-.form-item {
-  position: relative;
-  display: flex;
-  margin-right: 5px;
-
-  .icon {
-    height: 28px;
-    position: absolute;
-    left:0px;
-    top: 50%;
-    transform: translateY(-50%);
-   
-  }
-
-  .text {
-    padding-left: 40px;
-  }
-
-  .select {
-    padding-left: 40px;
-    width: 120%;
-
-  }
-}
-.form-description {
-  margin-top: 20px;
-  font-size: 14px;
-}
-.form-checkbox {
-  display: flex;
-}
-
-
+  @import "assets/css/main.scss";
 </style>

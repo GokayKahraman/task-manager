@@ -1,0 +1,18 @@
+
+.navigation {
+    height: 68px;
+    background-color: $color-softblue;
+  
+    .contain {
+      height:100%;
+      display: flex;
+      align-items: center;
+    }
+    &-item {
+      margin-right: 20px;
+      margin-left: 40px;
+      font-size: .90em;
+      color: $color-navy;
+      
+    }
+}

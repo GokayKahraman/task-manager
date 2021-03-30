@@ -1,0 +1,30 @@
+.highlights {
+    margin-bottom: 200px;
+    margin-top: -65px;
+
+    &-slider{
+        display: flex;
+    }
+
+    &-item {
+        width: 33%;
+        height:120px;
+        background-image: url("./assets/img/kutucuk.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 30px;
+
+        color: white;
+        padding-top: 50px;
+
+        h4 {
+            margin-top: 50px;
+            margin-left: -160px;
+        }
+
+        p {
+            margin-left: -100px;
+        }
+
+    }
+}
